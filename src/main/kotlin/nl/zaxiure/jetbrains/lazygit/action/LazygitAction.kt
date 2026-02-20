@@ -10,7 +10,7 @@ import org.jetbrains.plugins.terminal.TerminalToolWindowManager
 class LazygitAction : AnAction () {
 
     override fun actionPerformed(e: AnActionEvent) {
-        ApplicationManager.getApplication().getService(ShRunner::class.java).run(e.project!!, "lazygit;exit", e.project?.basePath!!, "Lazygit", true)
+        ApplicationManager.getApplication().getService(ShRunner::class.java).run(e.project!!, "lazygit && exit", e.project?.basePath!!, "Lazygit", true)
         val terminalToolWindowManager = TerminalToolWindowManager.getInstance(e.project!!)
 
         val terminalWidget =  terminalToolWindowManager.terminalWidgets.find { terminal -> terminal.terminalTitle.buildTitle() == "Lazygit" }
